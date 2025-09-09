@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npx eleventy --serve",
     "build": "npx @11ty/eleventy",
-    "build-ghpages": "cross-env NODE_ENV=production npx @11ty/eleventy --pathprefix=/TrlRizu.github.io/"
+    "build-ghpages": "cross-env NODE_ENV=production npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
