@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %}
+
+{% set pageHeaderTitle = title %}
+
+{# Grab posts that arent this one for feed #}
+{% set recommendedPosts = utils.getContents(collections.articulos, page) %}
+
+{% set postListItems = recommendedPosts | slice(0, 3) %}
+
+{% set pageHeaderSummary %} 
+  {% if tags %}
+    <time datetime="{{ page.date | dateIso }}">{{ page.date | dateReadable }}</time>
+    <ul class="tags-list" aria-describedby="tags-desc">
+      {% for tag in tags %}
+        <li class="tags-list__item">
+          <a href="/tag/{{ tag | slugify }}/" class="tags-list__link">#{{ tag | title | replace(' ', '') }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endset %}
+
+{% block content %}
+  {% include "partials/page-header.html" %}
+
+  <article class="post">    
+    <div class="post-content">
+      {{ content | safe }}
+    </div>
+  </article>
+
+   <br>
+   {% if recommendedPosts | length > 0 %}
+    <div class="post-list__sep"></div>
+    <div class="post-footer__banner">
+      <h2>Revistas:</h2>
+    </div>
+    {% include "partials/post-list.html" %}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,458 @@
+@use "variables.scss" as *;
+@use "reset"; 
+
+
+* {
+  background-color: $background;
+}
+
+
+::selection {
+  background-color: $color-green; 
+  color: $color-pure-white;          
+}
+
+body {  
+  margin-inline: auto;
+  padding-inline: 7rem; 
+}
+
+.site-head__ribbon, .intro-head__ribbon {
+  display: block;      
+  height: 2rem;   
+  width: 100%;          
+  background: $color-green;  
+  border: none;
+  margin-top: 0;        
+}
+
+//header
+.site-head {
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  &__title {
+    font-weight: 700;
+    background: $color-green;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 3px;
+  }
+
+  &__tagline {
+    flex: 1;
+    margin: 0 1rem;
+    font-size: 0.95rem;
+    color: $tagline;
+
+    em {
+      font-style: italic;
+      color: $color-pure-white;
+    }
+  }
+
+  
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid $border-color;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 0.75rem;
+    padding-left: 1rem;
+  }
+  
+  &__icon {
+    color: $color-pure-white;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+  
+  &__icon-image {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__sep {
+    border-left: 1px solid $border-color;
+    height: 24px; 
+    align-self: center;
+  }
+}
+
+//navbar
+.nav {
+
+  &__list {
+    display: flex;
+    margin: 0;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: $color-pure-white;
+    text-decoration: none;
+    font-family: $serif;
+    line-height: 2.5rem;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+}
+
+// about
+.intro {
+  max-width: 940px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 50px;
+
+  &__header {
+    font-family: $sans;
+    padding-right: 20px;
+    border-right:1px solid $border-color;
+  }
+
+  &__heading {
+    color: $color-white;
+    font-size: 100px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    width: 75%;
+  }
+
+  &__summary {
+    color: $color-white;
+    font-family: $serif;
+  }
+
+}
+
+// artículos
+.post-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  &__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 2rem auto;
+  }
+
+  &__left, &__right {
+    padding: 1.5rem 0;
+  }
+  
+  &__left {
+    text-align: left;
+  }
+  
+  &__title {
+    margin: 0 0 1rem 0;
+    transition: background-color 0.2s ease;
+  }
+
+  &__link {
+    color: $color-white;
+    font-family: $serif;
+    text-decoration: none;
+  }
+  
+  &__excerpt {
+    margin: 0 0 1rem 0;
+    font-family: $serif;
+    color: $color-grey;
+  }
+
+  &__tags {
+    list-style: none;
+    padding: 0;
+  }
+
+  
+  &__right {
+    text-align: center;
+  }
+
+  &__date {
+    margin-bottom: 1rem;
+  }
+  
+  time {
+    font-size: 1.15rem;
+    font-family: $serif;
+    font-weight: 400;
+    color: $color-grey;
+  }
+  
+  &__tag {
+    font-family: $sans;
+    color: $color-green;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 1000;
+
+    border: 1px solid $border-color;
+    text-align: center;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 10px;
+
+    a {
+      color: $color-green;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  &__sep {
+    grid-column: 1 / -1;
+    border: none;
+    border-top: 1px solid $border-color;
+    margin: 0;
+  }
+
+}
+
+// page-header
+.page-header {
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 1rem;
+  text-align: center;
+
+  &__heading {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: $color-green;
+  }
+
+  &__summary {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    color: $color-white;
+  }
+
+  &__tags {
+    margin-top: 1.5rem;
+  }
+}
+
+.tags-list {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $color-green;
+    border: 1px solid $color-green;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $color-green;
+      color: $color-pure-white;
+    }
+  }
+}
+
+// posts
+.post {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 900px;
+  line-height: 1.7;
+
+  .post-content {
+    max-width: 800px;
+    padding: 2rem 1rem;
+  
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 2rem 0 1rem;
+      color: $color-green;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.6rem; }
+    h4 { font-size: 1.3rem; }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: $color-white;
+      font-weight: 400;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin: 1rem 0 1.5rem 2rem;
+      padding-left: 1rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        color: $color-white;
+      }
+    }
+
+    a {
+      color: $color-green;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-green;
+      }
+    }
+
+    blockquote {
+      margin: 2rem 0;
+      padding: 1rem 1.5rem;
+      border-left: 4px solid $color-green;
+      background: rgba($color-green, 0.05);
+      font-style: italic;
+      color: $color-white;
+    }
+  }
+
+}
+
+.post-footer__banner, .feed-content__banner {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 0;
+  text-align: center;
+
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: $color-green;
+  
+}
+
+// To implement later on
+
+@media (min-width: 768px) {
+   .site-head__title {
+    font-size: 1.8rem;
+  }
+  
+  .nav {
+    
+    &__list {
+      gap: 1.5rem;
+    }
+
+    &__link {
+      font-size: 1rem;
+      line-height: 2.5rem;
+      padding: 0 0.75rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-inline: 1.5rem;
+  }
+
+  .site-head {
+    &__title {
+      font-size: 1.2rem;
+    }
+
+    &__tagline {
+      font-size: 0.8rem;
+    }
+
+  }
+
+  .nav {
+    &__list {
+      gap: 0.75rem;
+    }
+
+    &__link {
+      font-size: 0.85rem; 
+      line-height: 2rem;
+      padding: 0 0.25rem;
+    }
+  }
+
+  .icon-button {
+    font-size: 1rem;
+  }
+
+
+  .intro {
+    display: initial;
+    margin-top: 2rem;
+   
+    &__header {
+      padding-right: 0;
+      border-right: none;
+      margin-bottom: 0;
+    }
+
+    &__content {
+      width: 100%;
+    }
+  }
+}

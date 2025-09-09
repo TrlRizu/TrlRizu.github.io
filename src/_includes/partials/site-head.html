@@ -1,0 +1,35 @@
+<header class="site-head">
+  <div class="site-head__top">
+    <h1 class="site-head__title">Trl Rizu</h1>
+    <p class="site-head__tagline">Trying to <em>make</em> stuff.</p>
+  </div>
+
+  <div class="site-head__bottom">
+    <nav class="site-head__nav | nav">
+        <ul class="nav__list">
+         {% for item in navigation.items %}
+          <li class="nav__item">
+            <a class="nav__link" href="{{ item.url }}">{{ item.text }}</a>
+          </li>
+          <div class="site-head__sep"></div>
+          {% endfor %}
+        </ul>
+    </nav>
+    <div class="site-head__icons">
+
+      <a href="https://github.com/TrlRizu" class="site-head__icon site-head__icon--image">
+        <img src="/images/logo/logo.jpg" alt="GitHub" class="site-head__icon-image">
+      </a>
+      
+      <div class="site-head__sep"></div>
+      <!-- To add later -->
+      <button class="site-head__icon site-head__icon--rss">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="site-head__icon-svg">
+          <path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+  <hr class="site-head__ribbon">
+</header>

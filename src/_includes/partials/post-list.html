@@ -1,0 +1,39 @@
+<div class="post-list">
+  <ol class="post-list__items">
+    {% for item in postListItems %}
+		<div class="post-list__item">
+			<li class="post-list__left">
+				<!-- Left Column -->
+				<div class="post-list__content">
+					<h2 class="post-list__title">
+						<a href="{{ item.url }}" class="post-list__link">{{ item.data.title }}</a>
+					</h2>
+					
+				{% if item.data.excerpt %}
+					<p class="post-list__excerpt">{{ item.data.excerpt }}</p>
+				{% endif %}
+
+				</div>
+			</li>
+			<li class="post-list__right">
+				<!-- Right Column -->
+				<div class="post-list__meta">
+					<p class="post-list__date">
+						<time datetime="{{ item.date | dateIso }}">{{ item.date | dateReadable }}</time>
+					</p>
+					{% if item.data.tags %}
+					{% endif %}
+				</div> 
+				<ul class="post-list__tags">
+				{% for tag in item.data.tags | limit(2) %}
+					<li class="post-list__tag">
+						<a href="/tag/{{ tag | slugify }}/">{{ tag | title | replace(' ', '') }}</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</li>
+			<hr class="post-list__sep">
+		</div>
+	{% endfor %}
+  </ol>
+</div>

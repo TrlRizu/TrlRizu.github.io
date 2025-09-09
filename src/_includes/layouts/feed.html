@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %} 
+
+{% set pageHeaderTitle = title %}
+{% set pageHeaderSummary = content %}
+{% set postListItems = pagination.items %}
+
+{# If this is a tag, grab those items instead as one large collection #}
+{% if tag %}
+  {% set postListItems = collections[tag] %}
+  {% set pageHeaderTitle = 'Blog posts filed under “' + tag + '”' %}
+{% endif %}
+{% block content %}
+<article class="feed-content">
+    <div class="feed-content__banner">
+        <h2>{{ pageHeaderTitle }}</h2>
+    </div>
+    {% include "partials/post-list.html" %}
+  </article>
+{% endblock %}

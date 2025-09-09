@@ -1,0 +1,16 @@
+{
+	"items": [
+		{
+			"text": "About",
+			"url": "/"
+		},
+		{
+			"text": "Articulos",
+			"url": "/articulos/"
+		},
+		{
+			"text": "Las Otras",
+			"url": "/las-otras"
+		}
+	]
+}

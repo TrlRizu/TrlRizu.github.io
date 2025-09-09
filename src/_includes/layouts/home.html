@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %}
+
+{# for post-list partial#}
+{% set postListItems = pagination.items %}
+
+{% block content %}
+
+<article class="intro">
+
+	<div class="intro__header">
+		<h1 class="intro__heading">{{ intro.main }}</h1>
+	</div>
+	<div class="intro__content">
+		<p class="intro__summary">{{ intro.desc }}</p>
+	</div>
+	
+</article>
+<hr class="intro-head__ribbon">
+{% include "partials/post-list.html" %}
+{% endblock %}
